@@ -3,6 +3,7 @@ import { usePerformance } from '../context/PerformanceContext';
 import Hero3DModel from '../components/Hero3DModel';
 import GlowSphere from '../components/GlowSphere';
 import ScreenDecor from '../components/ScreenDecor';
+import BrandLockup from '../components/BrandLockup';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useRef } from 'react';
@@ -40,12 +41,9 @@ function HookScreen() {
     <div className="screen-container" ref={containerRef}>
       <ScreenDecor />
       {/* Top brand */}
-      <p id="hook-brand"
-        className="font-orbitron text-lg md:text-xl tracking-[0.5em] text-[var(--color-cyan)] opacity-0 absolute top-8"
-        style={{ textShadow: '0 0 20px rgba(94,234,212,0.3)' }}
-      >
-        QWEN OS
-      </p>
+      <div id="hook-brand" className="absolute top-8 opacity-0">
+        <BrandLockup />
+      </div>
 
       <div className="flex-1 flex items-center justify-center w-full">
         {performance === 'full' ? <Hero3DModel /> : <GlowSphere />}

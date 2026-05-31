@@ -104,7 +104,12 @@ function PosterPreview({ result, sceneId }: Props) {
       </main>
 
       <footer className="absolute inset-x-7 bottom-7 z-10 flex items-center justify-between">
-        <div>
+        <div className="max-w-[172px]">
+          <img
+            src={assetPath('assets/brand/aliyun-qwen-logo.png')}
+            alt="阿里云 × 千问大模型"
+            className="mb-2 w-[152px] rounded-md bg-white px-2 py-1"
+          />
           <p className="text-[11px] leading-relaxed text-[rgba(248,244,238,0.68)]">
             千问大模型，让万物进化为智能体
           </p>

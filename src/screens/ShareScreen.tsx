@@ -1,6 +1,7 @@
 import { useApp } from '../context/AppContext';
 import PosterPreview from '../components/PosterPreview';
 import ScreenDecor from '../components/ScreenDecor';
+import BrandLockup from '../components/BrandLockup';
 import { generatePoster, downloadPoster } from '../utils/poster';
 import { useState, useRef, useEffect } from 'react';
 import gsap from 'gsap';
@@ -60,6 +61,8 @@ function ShareScreen() {
       </div>
 
       <div ref={containerRef} className="share-screen__content flex w-full max-w-[430px] flex-col items-center gap-5 px-4">
+        <BrandLockup compact />
+
         <div className="text-center">
           <p className="font-orbitron text-xs tracking-[0.3em] text-[var(--text-secondary)] uppercase mb-2">
             POSTER PREVIEW
