@@ -2,6 +2,9 @@ import type { PerformanceLevel } from '../types';
 
 export function detectPerformance(): PerformanceLevel {
   try {
+    const isMobile = window.matchMedia('(max-width: 768px), (pointer: coarse)').matches;
+    if (isMobile) return 'degraded';
+
     const canvas = document.createElement('canvas');
     const gl = canvas.getContext('webgl') as WebGLRenderingContext | null
       || canvas.getContext('experimental-webgl') as WebGLRenderingContext | null;

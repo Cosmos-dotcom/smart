@@ -9,6 +9,7 @@ import {
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import { useApp } from '../context/AppContext';
+import { usePerformance } from '../context/PerformanceContext';
 
 // ─── Combination Data ───────────────────────────────────────
 
@@ -191,6 +192,7 @@ function buildEdges(activeIds: Set<string>): Edge[] {
 
 function WorkflowEditor() {
   const { setResult, setScreen } = useApp();
+  const performance = usePerformance();
   const [activeIds, setActiveIds] = useState<Set<string>>(new Set());
   const [agiMode, setAgiMode] = useState(false);
   const [showFlash, setShowFlash] = useState(false);
@@ -273,6 +275,104 @@ function WorkflowEditor() {
     setActiveIds(new Set());
     setAgiMode(false);
   }, []);
+
+  if (performance === 'degraded') {
+    return (
+      <div className={`workflow-editor workflow-editor--simple workflow-editor--active-${activeCount}`}>
+        {showFlash && <div className="agi-flash-overlay" />}
+
+        <div className="workflow-editor__brief">
+          <div>
+            <p className="workflow-editor__eyebrow">SOFTWARE ORCHESTRATION</p>
+            <h2>把零散工具编排成 AI 工作流</h2>
+          </div>
+          <p>移动端使用轻量模式，保留核心互动，减少画布和粒子带来的卡顿。</p>
+        </div>
+
+        <div className="workflow-simple">
+          <div className="workflow-simple__header">
+            <span>BEFORE</span>
+            <strong>手动工具堆叠</strong>
+          </div>
+
+          <div className="workflow-simple__grid">
+            {capabilities.map((cap) => {
+              const active = activeIds.has(cap.id);
+              return (
+                <button
+                  key={cap.id}
+                  type="button"
+                  className={`workflow-simple-card${active ? ' active' : ''}`}
+                  onClick={() => {
+                    setActiveIds((prev) => {
+                      const next = new Set(prev);
+                      if (next.has(cap.id)) next.delete(cap.id);
+                      else next.add(cap.id);
+
+                      const isAll = next.size === 4;
+                      setAgiMode(isAll);
+                      if (isAll && prev.size !== 4) {
+                        setShowFlash(true);
+                        setTimeout(() => setShowFlash(false), 700);
+                      }
+                      return next;
+                    });
+                  }}
+                >
+                  <span className="workflow-simple-card__icon">{cap.emoji}</span>
+                  <span className="workflow-simple-card__title">{cap.label}</span>
+                  <span className="workflow-simple-card__desc">{active ? cap.after : cap.before}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className={`workflow-simple-core${activeCount > 0 ? ' active' : ''}`}>
+            <span>{agiMode ? 'QWEN AGI' : 'QWEN OS'}</span>
+            <strong>{comboResult?.name ?? `${activeCount}/4 能力接入`}</strong>
+          </div>
+
+          <div className="workflow-simple__header workflow-simple__header--right">
+            <span>AFTER</span>
+            <strong>AI 自动编排</strong>
+          </div>
+        </div>
+
+        <div className="workflow-editor__footer">
+          <div className="workflow-progress" aria-label={`已接入 ${activeCount} 个能力`}>
+            {capabilities.map((cap) => (
+              <span
+                key={cap.id}
+                className={`workflow-progress__step${activeIds.has(cap.id) ? ' active' : ''}`}
+              >
+                {cap.label}
+              </span>
+            ))}
+          </div>
+
+          <div className={`soul-copy ${comboResult ? 'visible' : ''}`}>
+            {comboResult?.slogan ?? '至少接入两个能力后，软件会从单点工具变成可组合的智能工作流。'}
+          </div>
+
+          <div className="workflow-editor__actions">
+            <button className="workflow-secondary-action" type="button" onClick={handleAutoCompose}>
+              一键接入千问 AI
+            </button>
+            <button className="workflow-ghost-action" type="button" onClick={handleReset}>
+              重置
+            </button>
+          </div>
+
+          <button
+            className={`btn-primary ${comboResult ? 'can-generate' : ''}`}
+            onClick={handleGenerate}
+          >
+            生成我的 AI 新物种
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`workflow-editor workflow-editor--active-${activeCount}`}>
