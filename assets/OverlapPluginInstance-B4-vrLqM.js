@@ -1,0 +1,2 @@
+import{p as a}from"./index-mIR5XEJt.js";const c=0;class u{_container;constructor(e){this._container=e}checkParticlePosition(e,s,t){return!this._hasOverlaps(e,s,t)}_hasOverlaps=(e,s,t)=>{const i=e.options.collisions;if(!i?.enable)return!1;const n=i.overlap;if(n.enable)return!1;const r=n.retries;if(r>=c&&t>r)throw new Error("Particle is overlapping and can't be placed");return!!this._container.particles.find(o=>a(s,o.position)<e.getRadius()+o.getRadius())}}export{u as OverlapPluginInstance};
+//# sourceMappingURL=OverlapPluginInstance-B4-vrLqM.js.map
