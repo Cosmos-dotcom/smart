@@ -1,0 +1,33 @@
+:root {
+  --bg: #070807;
+  --bg-deep: #020302;
+  --bg-card: rgba(12, 15, 14, 0.84);
+  --bg-card-hover: rgba(20, 25, 22, 0.9);
+
+  --color-cyan: #5eead4;
+  --color-orange: #ff6a00;
+  --color-green: #9ef86f;
+
+  --text-primary: #f8f4ee;
+  --text-secondary: #aeb8b0;
+  --text-accent: #ffddc5;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --glow-cyan: 0 0 40px rgba(94, 234, 212, 0.3);
+  --glow-orange: 0 0 40px rgba(255, 106, 0, 0.3);
+  --glow-cyan-strong: 0 0 60px rgba(94, 234, 212, 0.5), 0 0 120px rgba(94, 234, 212, 0.15);
+  --glow-orange-strong: 0 0 60px rgba(255, 106, 0, 0.5), 0 0 120px rgba(255, 106, 0, 0.15);
+
+  --gradient-cyan: linear-gradient(135deg, var(--color-cyan), #38d9a9);
+  --gradient-orange: linear-gradient(135deg, var(--color-orange), #ff9a44);
+  --gradient-mixed: linear-gradient(135deg, var(--color-cyan), var(--color-orange));
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-fast: 0.3s;
+  --dur-normal: 0.5s;
+  --dur-slow: 0.8s;
+}
