@@ -146,7 +146,7 @@ function AnalysisScreen() {
       </div>
 
       {/* Bottom status */}
-      <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center gap-1 z-10">
+      <div className="screen-status absolute bottom-6 left-0 right-0 flex flex-col items-center gap-1 z-10">
         <div className="flex items-center gap-2">
           <div className="w-1.5 h-1.5 rounded-full bg-[var(--color-cyan)] animate-pulse" />
           <p className="font-orbitron text-[8px] tracking-[0.3em] text-[var(--color-cyan)] opacity-40">

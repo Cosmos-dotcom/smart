@@ -46,7 +46,7 @@ function ShareScreen() {
   };
 
   return (
-    <div className="screen-container">
+    <div className="screen-container share-screen">
       <ScreenDecor />
 
       {/* Top header */}
@@ -59,7 +59,7 @@ function ShareScreen() {
         </p>
       </div>
 
-      <div ref={containerRef} className="flex w-full max-w-[430px] flex-col items-center gap-5 px-4">
+      <div ref={containerRef} className="share-screen__content flex w-full max-w-[430px] flex-col items-center gap-5 px-4">
         <div className="text-center">
           <p className="font-orbitron text-xs tracking-[0.3em] text-[var(--text-secondary)] uppercase mb-2">
             POSTER PREVIEW
@@ -68,7 +68,7 @@ function ShareScreen() {
         </div>
 
         {/* Poster preview with glow frame */}
-        <div className="relative mx-auto h-[520px] w-[292px] overflow-hidden rounded-2xl border border-[rgba(94,234,212,0.22)] shadow-[0_0_42px_rgba(94,234,212,0.14),0_18px_80px_rgba(0,0,0,0.45)] sm:h-[600px] sm:w-[337px]">
+        <div className="share-screen__poster-frame relative mx-auto h-[520px] w-[292px] overflow-hidden rounded-2xl border border-[rgba(94,234,212,0.22)] shadow-[0_0_42px_rgba(94,234,212,0.14),0_18px_80px_rgba(0,0,0,0.45)] sm:h-[600px] sm:w-[337px]">
           <div
             style={{
               width: 375,
@@ -76,7 +76,7 @@ function ShareScreen() {
               transform: 'scale(var(--poster-preview-scale))',
               transformOrigin: 'top left',
             }}
-            className="[--poster-preview-scale:0.78] sm:[--poster-preview-scale:0.9]"
+            className="share-screen__poster-scale [--poster-preview-scale:0.78] sm:[--poster-preview-scale:0.9]"
           >
             <PosterPreview result={result} sceneId={sceneId} />
           </div>
@@ -100,7 +100,7 @@ function ShareScreen() {
       </div>
 
       {/* Bottom status */}
-      <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center gap-1 z-10">
+      <div className="screen-status absolute bottom-6 left-0 right-0 flex flex-col items-center gap-1 z-10">
         <p className="font-orbitron text-[7px] tracking-[0.2em] text-[var(--text-secondary)] opacity-25">
           POWERED BY QWEN NEURAL ENGINE
         </p>

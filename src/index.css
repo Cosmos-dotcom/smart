@@ -87,6 +87,10 @@ canvas {
   overflow: hidden;
 }
 
+.screen-status {
+  pointer-events: none;
+}
+
 .btn-primary {
   padding: 14px 36px;
   border-radius: var(--radius-lg);
@@ -931,29 +935,68 @@ canvas {
 }
 
 @media (max-width: 640px) {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  .screen-container {
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-top: max(72px, env(safe-area-inset-top));
+    padding-bottom: max(52px, env(safe-area-inset-bottom));
+  }
+
+  .share-screen {
+    padding-top: max(64px, env(safe-area-inset-top));
+    padding-bottom: max(70px, env(safe-area-inset-bottom));
+  }
+
+  .share-screen__content {
+    gap: 14px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .share-screen__poster-frame {
+    height: 420px;
+    width: 236px;
+  }
+
+  .share-screen__poster-scale {
+    --poster-preview-scale: 0.63 !important;
+  }
+
+  .screen-status {
+    bottom: max(14px, env(safe-area-inset-bottom));
+  }
+
   .workflow-editor {
-    padding: 68px 12px 36px;
-    gap: 10px;
+    padding: 64px 12px 28px;
+    gap: 8px;
   }
 
   .workflow-editor__brief {
     grid-template-columns: 1fr;
-    gap: 7px;
+    gap: 5px;
   }
 
   .workflow-editor__brief h2 {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .workflow-editor__brief p {
-    font-size: 12px;
-    line-height: 1.55;
+    font-size: 11px;
+    line-height: 1.45;
   }
 
   .workflow-editor__canvas {
     width: 100%;
     max-height: calc(100vh - 250px);
-    min-height: 620px;
+    min-height: 522px;
     border-radius: 18px;
   }
 
@@ -1000,7 +1043,7 @@ canvas {
 
   .software-core-label {
     min-width: 150px;
-    padding: 16px 18px;
+    padding: 13px 18px;
   }
 
   .software-core-label__icon {
@@ -1013,7 +1056,7 @@ canvas {
 
   .software-result-label {
     max-width: 190px;
-    padding: 13px 14px;
+    padding: 10px 14px;
   }
 
   .software-stage-label--before {
@@ -1027,12 +1070,23 @@ canvas {
   }
 
   .workflow-editor__footer {
-    gap: 8px;
+    gap: 7px;
   }
 
   .soul-copy {
     max-width: 320px;
-    font-size: 12px;
-    line-height: 1.5;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .workflow-progress__step {
+    padding: 4px 9px;
+    font-size: 10px;
+  }
+
+  .workflow-secondary-action,
+  .workflow-ghost-action {
+    padding: 8px 12px;
+    font-size: 11px;
   }
 }

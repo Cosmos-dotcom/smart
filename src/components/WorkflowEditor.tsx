@@ -69,10 +69,10 @@ const capabilities = [
 function getCapabilityPosition(index: number, isMobile: boolean) {
   if (!isMobile) return { x: capabilities[index]!.x, y: capabilities[index]!.y };
   return [
-    { x: 38, y: 48 },
-    { x: 210, y: 48 },
-    { x: 38, y: 238 },
-    { x: 210, y: 238 },
+    { x: 38, y: 30 },
+    { x: 210, y: 30 },
+    { x: 38, y: 188 },
+    { x: 210, y: 188 },
   ][index]!;
 }
 
@@ -157,7 +157,7 @@ function buildNodes(activeIds: Set<string>, agiMode: boolean, comboResult: Combo
     id: 'qwen-core',
     type: 'default',
     data: { label: <CoreLabel agiMode={agiMode} /> },
-    position: isMobile ? { x: 126, y: 422 } : { x: 356, y: 206 },
+    position: isMobile ? { x: 126, y: 338 } : { x: 356, y: 206 },
     draggable: false,
     selectable: false,
     className: `core-node${agiMode ? ' agi-active' : ''}`,
@@ -168,7 +168,7 @@ function buildNodes(activeIds: Set<string>, agiMode: boolean, comboResult: Combo
         id: 'result',
         type: 'default' as const,
         data: { label: <ResultLabel name={comboResult.name} slogan={comboResult.slogan} /> },
-        position: isMobile ? { x: 108, y: 552 } : { x: 342, y: 404 },
+        position: isMobile ? { x: 108, y: 462 } : { x: 342, y: 404 },
         draggable: false,
         selectable: false,
         className: 'result-node',

@@ -71,7 +71,7 @@ function InputScreen() {
       </div>
 
       {/* Bottom hint */}
-      <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center gap-1 z-10">
+      <div className="screen-status absolute bottom-6 left-0 right-0 flex flex-col items-center gap-1 z-10">
         <p className="font-orbitron text-[7px] tracking-[0.2em] text-[var(--text-secondary)] opacity-25">
           SELECT A SCENE TO BEGIN EVOLUTION
         </p>

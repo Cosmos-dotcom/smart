@@ -124,7 +124,7 @@ function ChoiceScreen() {
         <WorkflowEditor />
 
         {/* Bottom status */}
-        <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center gap-1 z-10">
+        <div className="screen-status absolute bottom-6 left-0 right-0 flex flex-col items-center gap-1 z-10">
           <div className="flex items-center gap-3">
             <div className="w-6 h-px bg-[var(--color-cyan)] opacity-20" />
             <p className="font-orbitron text-[7px] tracking-[0.2em] text-[var(--text-secondary)] opacity-25">
@@ -153,7 +153,7 @@ function ChoiceScreen() {
 
         <VisualEvolutionExperience scene={scene} config={visualConfig} onGenerate={handleGenerate} />
 
-        <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center gap-1 z-10">
+        <div className="screen-status absolute bottom-6 left-0 right-0 flex flex-col items-center gap-1 z-10">
           <div className="flex items-center gap-3">
             <div className="w-6 h-px bg-[var(--color-cyan)] opacity-20" />
             <p className="font-orbitron text-[7px] tracking-[0.2em] text-[var(--text-secondary)] opacity-25">
@@ -263,7 +263,7 @@ function ChoiceScreen() {
       )}
 
       {/* Bottom status — always visible */}
-      <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center gap-1 z-10">
+      <div className="screen-status absolute bottom-6 left-0 right-0 flex flex-col items-center gap-1 z-10">
         <div className="flex items-center gap-3">
           <div className="w-6 h-px bg-[var(--color-cyan)] opacity-20" />
           <p className="font-orbitron text-[7px] tracking-[0.2em] text-[var(--text-secondary)] opacity-25">
